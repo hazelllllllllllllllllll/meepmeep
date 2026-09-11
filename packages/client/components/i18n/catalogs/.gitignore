@@ -1,1 +1,2 @@
 *.ts
+!en/messages.ts
