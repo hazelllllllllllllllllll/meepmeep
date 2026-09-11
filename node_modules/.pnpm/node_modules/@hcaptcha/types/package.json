@@ -1,0 +1,22 @@
+{
+  "name": "@hcaptcha/types",
+  "version": "1.0.4",
+  "license": "MIT",
+  "private": false,
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "sideEffects": false,
+  "description": "hCaptcha Type Definitions",
+  "files": [
+    "index.d.ts"
+  ],
+  "types": "index.d.ts",
+  "devDependencies": {
+    "typescript": "^4.6.2"
+  },
+  "scripts": {
+    "test": "tsc -p __tests__"
+  }
+}
