@@ -425,7 +425,7 @@ const CategoryBase = styled("div", {
     fill: "var(--color)",
 
     ...typography.raw({ class: "label", size: "small" }),
-    fontSize: "300px",
+    fontSize: "13px",
 
     "&:hover": {
       "--color": "var(--md-sys-color-on-surface-variant)",

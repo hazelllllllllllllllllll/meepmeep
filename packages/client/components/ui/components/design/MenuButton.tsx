@@ -146,7 +146,7 @@ const base = cva({
     flexShrink: 0,
 
     fontWeight: 500,
-    fontSize: "15px",
+    fontSize: "13px",
     userSelect: "none",
     cursor: "pointer",
 
