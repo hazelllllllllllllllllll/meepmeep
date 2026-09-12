@@ -425,7 +425,7 @@ const CategoryBase = styled("div", {
     fill: "var(--color)",
 
     ...typography.raw({ class: "label", size: "small" }),
-    fontSize: "16px",
+    fontSize: "13px",
 
     "&:hover": {
       "--color": "var(--md-sys-color-on-surface-variant)",
@@ -491,6 +491,7 @@ function Entry(
   return (
     <Column gap="sm">
       <MenuButton
+        class="channel-entry"
         href={`/server/${props.channel.serverId}/channel/${props.channel.id}`}
         use:floating={props.menuGenerator(props.channel)}
         size="normal"

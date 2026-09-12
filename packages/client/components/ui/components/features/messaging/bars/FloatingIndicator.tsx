@@ -20,14 +20,12 @@ export const FloatingIndicator = styled("div", {
     borderRadius: "var(--borderRadius-lg)",
 
     cursor: "pointer",
-    backdropFilter: "var(--effects-blur-md)",
 
     ...typography.raw({ size: "small" }),
 
     fill: "var(--md-sys-color-on-primary)",
     color: "var(--md-sys-color-on-primary)",
-    backgroundColor:
-      "color-mix(in srgb, var(--md-sys-color-primary) 55%, transparent)",
+    backgroundColor: "var(--md-sys-color-primary)",
 
     animation: "slideIn 340ms cubic-bezier(0.2, 0.9, 0.5, 1.16) forwards",
   },

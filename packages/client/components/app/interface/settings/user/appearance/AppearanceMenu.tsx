@@ -17,7 +17,6 @@ import {
   Checkbox,
   Column,
   FloatingSelect,
-  IconButton,
   MenuItem,
   MessageContainer,
   Row,
@@ -42,7 +41,7 @@ export function AppearanceMenu() {
   const user = useUser();
   const state = useState();
   const { t } = useLingui();
-  const [pickerRef, setPickerRef] = createSignal<HTMLDivElement>();
+  const [pickerRef, setPickerRef] = createSignal<HTMLInputElement>();
 
   function loadFonts() {
     for (const f in FONTS) FONTS[f as Fonts].load();
@@ -57,72 +56,80 @@ export function AppearanceMenu() {
     switch (state.theme.catppuccinFlavor) {
       case "latte":
         return [
-          "#DC8A78",
-          "#DD7878",
-          "#EA76CB",
-          "#8839EF",
           "#D20F39",
           "#E64553",
+          "#DD7878",
+          "#DC8A78",
           "#FE640B",
           "#DF8E1D",
           "#40A02B",
           "#179299",
-          "#04A5E5",
+          "#2A9D8F",
           "#209FB5",
+          "#04A5E5",
           "#1E66F5",
           "#7287FD",
+          "#C6A0F6",
+          "#8839EF",
+          "#EA76CB",
         ];
       case "frappe":
         return [
-          "#F2D5CF",
-          "#EEBEBE",
-          "#F4B8E4",
-          "#CA9EE6",
           "#E78284",
           "#EA999C",
+          "#EEBEBE",
+          "#F2D5CF",
           "#EF9F76",
           "#E5C890",
           "#A6D189",
           "#81C8BE",
-          "#99D1DB",
+          "#70B7B0",
           "#85C1DC",
+          "#99D1DB",
           "#8CAAEE",
           "#BABBF1",
+          "#CA9EE6",
+          "#F4B8E4",
+          "#D3869B",
         ];
       case "macchiato":
         return [
-          "#F4DBD6",
-          "#F0C6C6",
-          "#F5BDE6",
-          "#C6A0F6",
           "#ED8796",
           "#EE99A0",
+          "#F0C6C6",
+          "#F4DBD6",
           "#F5A97F",
           "#EED49F",
           "#A6DA95",
           "#8BD5CA",
-          "#91D7E3",
+          "#72B8B0",
           "#7DC4E4",
+          "#91D7E3",
           "#8AADF4",
           "#B7BDF8",
+          "#C6A0F6",
+          "#F5BDE6",
+          "#D67B9A",
         ];
       case "mocha":
       default:
         return [
-          "#F5E0DC",
-          "#F2CDCD",
-          "#F5C2E7",
-          "#CBA6F7",
           "#F38BA8",
           "#EBA0AC",
+          "#F2CDCD",
+          "#F5E0DC",
           "#FAB387",
           "#F9E2AF",
           "#A6E3A1",
           "#94E2D5",
-          "#89DCEB",
+          "#72B8B0",
           "#74C7EC",
+          "#89DCEB",
           "#89B4FA",
           "#B4BEFE",
+          "#CBA6F7",
+          "#F5C2E7",
+          "#D9789B",
         ];
     }
   };
@@ -195,16 +202,29 @@ export function AppearanceMenu() {
         </Row> */}
 
         <Show when={state.theme.preset === "you"}>
-          <Row align justify wrap>
-            <IconButton
-              ref={setPickerRef}
-              variant="filled"
-              shape="square"
-              size="md"
-              onPress={() => pickerRef()?.click()}
+          <AccentPickerRow>
+            <AccentSwatch
+              type="button"
+              style={{
+                "background-color":
+                  state.theme.m3Accent ?? "var(--md-sys-color-primary)",
+              }}
+              onClick={() => pickerRef()?.click()}
+              aria-label={t`Choose a custom accent colour`}
+              aria-pressed={
+                !catppuccinPalette().includes(state.theme.m3Accent ?? "")
+              }
+              selected={
+                !catppuccinPalette().includes(state.theme.m3Accent ?? "")
+              }
             >
               <MDPalette />
-            </IconButton>
+            </AccentSwatch>
+            <Text size="small">
+              <Trans>Custom accent</Trans>
+            </Text>
+          </AccentPickerRow>
+          <AccentPalette>
             <input
               ref={setPickerRef}
               type="color"
@@ -224,29 +244,17 @@ export function AppearanceMenu() {
             />
             <For each={catppuccinPalette()}>
               {(colour) => (
-                <Button
-                  size="md"
-                  bg={colour}
-                  group="standard"
-                  groupActive={state.theme.m3Accent === colour}
-                  onPress={() => state.theme.setM3Accent(colour)}
+                <AccentSwatch
+                  type="button"
+                  style={{ "background-color": colour }}
+                  onClick={() => state.theme.setM3Accent(colour)}
+                  aria-label={colour}
+                  aria-pressed={state.theme.m3Accent === colour}
+                  selected={state.theme.m3Accent === colour}
                 />
               )}
             </For>
-            {/* <div
-            class={css({
-              borderRadius: "var(--borderRadius-full)",
-              width: "48px",
-              height: "48px",
-              cursor: "pointer",
-            })}
-          >
-            <MdColorize />
-          </div> */}
-          </Row>
-
-          {/* TODO: Cursed on mobile; may need to be replaced
-          with FloatingSelect / similar on small screens */}
+          </AccentPalette>
         </Show>
       </Column>
 
@@ -428,5 +436,69 @@ const MessagePreview = styled("div", {
     flexDirection: "column",
     padding: "var(--gap-md)",
     gap: "var(--message-group-spacing)",
+  },
+});
+
+const AccentPalette = styled("div", {
+  base: {
+    display: "grid",
+    gridTemplateColumns: "repeat(8, 64px)",
+    gap: "var(--gap-md)",
+    width: "100%",
+    maxWidth: "620px",
+    justifyContent: "start",
+
+    "@media (max-width: 520px)": {
+      gridTemplateColumns: "repeat(4, 64px)",
+    },
+  },
+});
+
+const AccentPickerRow = styled("div", {
+  base: {
+    display: "flex",
+    alignItems: "center",
+    gap: "var(--gap-md)",
+    minHeight: "64px",
+  },
+});
+
+const AccentSwatch = styled("button", {
+  base: {
+    width: "64px",
+    height: "64px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 0,
+    border: "2px solid transparent",
+    borderRadius: "50%",
+    color: "var(--md-sys-color-on-primary)",
+    fill: "currentColor",
+    cursor: "pointer",
+    transition:
+      "transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease",
+
+    _hover: {
+      transform: "translateY(-2px)",
+      boxShadow: "0 4px 10px #0003",
+    },
+
+    _active: {
+      transform: "scale(0.95)",
+    },
+
+    _focusVisible: {
+      outline: "2px solid var(--md-sys-color-on-surface)",
+      outlineOffset: "3px",
+    },
+  },
+  variants: {
+    selected: {
+      true: {
+        borderColor: "var(--md-sys-color-on-surface)",
+        boxShadow: "0 0 0 3px var(--md-sys-color-surface-container)",
+      },
+    },
   },
 });

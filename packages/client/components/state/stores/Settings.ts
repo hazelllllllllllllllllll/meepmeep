@@ -146,7 +146,7 @@ export class Settings extends AbstractStore<"settings", TypeSettings> {
     return {
       "notifications:desktop": "default",
       "notifications:push": "default",
-      "appearance:unicode_emoji": "fluent-3d",
+      "appearance:unicode_emoji": "twemoji",
       "appearance:show_send_button": true,
       "appearance:compact_mode": false,
       "advanced:copy_id": false,

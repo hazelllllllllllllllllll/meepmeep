@@ -187,7 +187,7 @@ export const tile = cva({
     cursor: "pointer",
 
     color: "var(--md-sys-color-on-surface)",
-    background: "#0002",
+    background: "var(--md-sys-color-surface-container-highest)",
 
     overflow: "hidden",
     outlineWidth: "3px",

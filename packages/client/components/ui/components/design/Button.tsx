@@ -193,8 +193,8 @@ const button = cva({
         "--color": "var(--md-sys-color-on-primary)",
       },
       tonal: {
-        background: "var(--md-sys-color-secondary-container)",
-        "--color": "var(--md-sys-color-on-secondary-container)",
+        background: "var(--md-sys-color-primary)",
+        "--color": "var(--md-sys-color-on-primary)",
       },
       outlined: {
         border: "1px solid var(--md-sys-color-outline-variant)",

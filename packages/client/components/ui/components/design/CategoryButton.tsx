@@ -156,8 +156,8 @@ const Base = styled("a", {
         "--color": "var(--md-sys-color-on-primary)",
       },
       tonal: {
-        background: "var(--md-sys-color-secondary-container)",
-        "--color": "var(--md-sys-color-on-secondary-container)",
+        background: "var(--md-sys-color-primary-container)",
+        "--color": "var(--md-sys-color-on-primary-container)",
       },
       tertiary: {
         background: "var(--md-sys-color-tertiary-container)",

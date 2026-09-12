@@ -110,8 +110,8 @@ const Base = styled("div", {
     borderRadius: "var(--borderRadius-xs)",
     boxShadow: "0 0 3px var(--md-sys-color-shadow)",
 
-    fill: "var(--md-sys-color-on-secondary-container)",
-    background: "var(--md-sys-color-secondary-container)",
+    fill: "var(--md-sys-color-on-primary)",
+    background: "var(--md-sys-color-primary)",
   },
 });
 

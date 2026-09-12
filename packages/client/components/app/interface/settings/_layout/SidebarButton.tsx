@@ -69,6 +69,8 @@ const SidebarButtonBase = styled("a", {
   variants: {
     "aria-selected": {
       true: {
+        color: "var(--md-sys-color-on-primary-container)",
+        fill: "var(--md-sys-color-on-primary-container)",
         background: "var(--md-sys-color-primary-container)",
       },
     },

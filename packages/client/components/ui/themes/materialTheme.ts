@@ -269,7 +269,7 @@ function hexToRgb(hex: string) {
           .split("")
           .map((part) => `${part}${part}`)
           .join("")
-      : normalised;
+      : normalised.slice(0, 6);
 
   const num = Number.parseInt(value, 16);
   return {
@@ -296,8 +296,23 @@ function blend(hexA: string, hexB: string, weight: number) {
 
 function readTextColour(background: string) {
   const { r, g, b } = hexToRgb(background);
-  const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
-  return luminance > 0.65 ? "#11111b" : "#eff1f5";
+  const luminance = [r, g, b]
+    .map((channel) => channel / 255)
+    .map((channel) =>
+      channel <= 0.03928
+        ? channel / 12.92
+        : ((channel + 0.055) / 1.055) ** 2.4,
+    )
+    .reduce(
+      (value, channel, index) =>
+        value + channel * [0.2126, 0.7152, 0.0722][index],
+      0,
+    );
+  const contrast = (textLuminance: number) =>
+    (Math.max(luminance, textLuminance) + 0.05) /
+    (Math.min(luminance, textLuminance) + 0.05);
+
+  return contrast(0.0) >= contrast(1.0) ? "#11111b" : "#eff1f5";
 }
 
 function getAccentFromFlavor(flavor: CatppuccinFlavor, accent: string) {
@@ -324,9 +339,7 @@ function createCatppuccinScheme(
 ): MaterialColours {
   const palette = CATPPUCCIN_FLAVOURS[flavor];
   const resolvedAccent = getAccentFromFlavor(flavor, accent);
-  const accentContainer = darkMode
-    ? blend(resolvedAccent, palette.base, 0.35)
-    : blend(resolvedAccent, palette.mantle, 0.28);
+  const accentContainer = resolvedAccent;
   const secondary = darkMode ? palette.mauve : palette.lavender;
   const tertiary = darkMode ? palette.teal : palette.sky;
   const surfaceBase = darkMode ? palette.base : palette.base;
@@ -334,9 +347,6 @@ function createCatppuccinScheme(
   const surfaceContainer = darkMode ? palette.surface0 : palette.surface1;
   const surfaceContainerHigh = darkMode ? palette.surface1 : palette.surface2;
   const surfaceContainerHighest = darkMode ? palette.surface2 : palette.mantle;
-  const softSecondaryContainer = darkMode
-    ? blend(secondary, palette.base, 0.72)
-    : blend(secondary, palette.base, 0.58);
   const softTertiaryContainer = darkMode
     ? blend(tertiary, palette.base, 0.72)
     : blend(tertiary, palette.base, 0.58);
@@ -348,8 +358,8 @@ function createCatppuccinScheme(
     "on-primary-container": readTextColour(accentContainer),
     secondary,
     "on-secondary": readTextColour(secondary),
-    "secondary-container": softSecondaryContainer,
-    "on-secondary-container": darkMode ? palette.text : "#57694c",
+    "secondary-container": resolvedAccent,
+    "on-secondary-container": readTextColour(resolvedAccent),
     tertiary,
     "on-tertiary": readTextColour(tertiary),
     "tertiary-container": softTertiaryContainer,

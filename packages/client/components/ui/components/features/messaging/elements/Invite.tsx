@@ -103,7 +103,7 @@ const Base = styled("div", {
     padding: "var(--gap-md)",
     borderRadius: "var(--borderRadius-md)",
 
-    color: "var(--md-sys-color-on-secondary-container)",
-    background: "var(--md-sys-color-secondary-container)",
+    color: "var(--md-sys-color-on-primary)",
+    background: "var(--md-sys-color-primary)",
   },
 });

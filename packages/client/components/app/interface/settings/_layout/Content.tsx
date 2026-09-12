@@ -105,6 +105,38 @@ const base = css({
     textDecoration: "none",
   },
 
+  "& .settings_cont div > a": {
+    borderRadius: 0,
+    background: "transparent !important",
+    borderBottom: "1px solid var(--md-sys-color-outline-variant)",
+    color: "var(--md-sys-color-on-surface)",
+    fill: "var(--md-sys-color-on-surface)",
+  },
+
+  "& .settings_cont div > a:hover": {
+    background: "var(--md-sys-color-surface-container-high) !important",
+  },
+
+  "& .settings_cont details": {
+    borderBottom: "1px solid var(--md-sys-color-outline-variant)",
+  },
+
+  "& .settings_cont details > summary": {
+    listStyle: "none",
+  },
+
+  "& .settings_cont details > summary a, & .settings_cont details > div a": {
+    borderRadius: 0,
+    background: "transparent !important",
+    color: "var(--md-sys-color-on-surface)",
+    fill: "var(--md-sys-color-on-surface)",
+  },
+
+  "& .settings_cont details > summary a:hover, & .settings_cont details > div a:hover":
+    {
+      background: "var(--md-sys-color-surface-container-high) !important",
+    },
+
   _phone: {
     borderRadius: 0,
   },

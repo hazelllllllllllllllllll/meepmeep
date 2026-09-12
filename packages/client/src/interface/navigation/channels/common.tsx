@@ -23,6 +23,11 @@ export const SidebarBase = styled("div", {
       textDecoration: "none",
     },
 
+    "& .channel-entry": {
+      fontSize: "15px",
+      "--emoji-size": "1em",
+    },
+
     _phone: {
       flexGrow: 1,
     },

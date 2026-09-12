@@ -174,8 +174,8 @@ const description = cva({
     maxHeight: "120px",
     padding: "var(--gap-md)",
     borderRadius: "var(--borderRadius-lg)",
-    color: "var(--md-sys-color-on-secondary-container)",
-    background: "var(--md-sys-color-secondary-container)",
+    color: "var(--md-sys-color-on-primary)",
+    background: "var(--md-sys-color-primary)",
   },
 });
 
@@ -183,7 +183,7 @@ const ProvidedBy = styled("div", {
   base: {
     bottom: 0,
     position: "sticky",
-    background: "var(--md-sys-color-secondary-container)",
+    background: "var(--md-sys-color-primary)",
   },
 });
 
@@ -196,7 +196,7 @@ const CoverText = styled("div", {
       width: "100%",
       position: "absolute",
       height: "var(--gap-md)",
-      background: "var(--md-sys-color-secondary-container)",
+      background: "var(--md-sys-color-primary)",
     },
   },
 });

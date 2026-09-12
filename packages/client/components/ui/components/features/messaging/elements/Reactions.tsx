@@ -236,8 +236,8 @@ const ReactionBase = styled("div", {
   variants: {
     active: {
       true: {
-        color: "var(--md-sys-color-on-secondary-container)",
-        background: "var(--md-sys-color-secondary-container)",
+        color: "var(--md-sys-color-on-primary)",
+        background: "var(--md-sys-color-primary)",
       },
       false: {
         color: "var(--md-sys-color-on-surface)",

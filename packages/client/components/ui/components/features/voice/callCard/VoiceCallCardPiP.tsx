@@ -155,6 +155,6 @@ const MiniCard = styled("div", {
     padding: "var(--gap-md)",
 
     borderRadius: "var(--borderRadius-lg)",
-    background: "var(--md-sys-color-secondary-container)",
+    background: "var(--md-sys-color-primary-container)",
   },
 });

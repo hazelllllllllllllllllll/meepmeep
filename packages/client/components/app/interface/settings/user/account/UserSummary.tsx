@@ -100,7 +100,7 @@ const Username = styled("div", {
     display: "flex",
     flexDirection: "column",
 
-    color: "var(--md-sys-color-on-secondary-container)",
+    color: "var(--md-sys-color-on-primary-container)",
 
     // Display Name
     "& :nth-child(1)": {

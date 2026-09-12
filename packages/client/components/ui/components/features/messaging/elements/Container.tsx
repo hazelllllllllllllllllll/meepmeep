@@ -158,6 +158,7 @@ const base = cva({
     },
     mentioned: {
       true: {
+        color: "var(--md-sys-color-on-primary-container)",
         background: "var(--md-sys-color-primary-container)",
       },
     },
