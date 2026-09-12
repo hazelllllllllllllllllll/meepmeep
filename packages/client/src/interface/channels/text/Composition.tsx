@@ -397,6 +397,14 @@ export function MessageComposition(props: Props) {
                       </MessageBox.InlineIcon>
                     </Show>
                     <MessageBox.InlineIcon>
+                      <IconButton
+                        aria-label="Send son"
+                        onPress={() => sendMessage("son")}
+                      >
+                        <span>son</span>
+                      </IconButton>
+                    </MessageBox.InlineIcon>
+                    <MessageBox.InlineIcon>
                       <IconButton onPress={triggerProps.onClickEmoji}>
                         <Symbol>mood</Symbol>
                       </IconButton>
