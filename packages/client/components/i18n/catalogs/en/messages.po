@@ -372,6 +372,10 @@ msgstr "Add new members to the group"
 msgid "Add status text"
 msgstr "Add status text"
 
+#: components/app/interface/settings/user/notifications/UserAlerts.tsx
+msgid "Add User"
+msgstr "Add User"
+
 #: components/app/interface/settings/channel/permissions/ChannelPermissionsEditor.tsx
 msgid "Admin"
 msgstr "Admin"
@@ -756,6 +760,10 @@ msgstr "Chat Input"
 msgid "Check your mail!"
 msgstr "Check your mail!"
 
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
+msgid "Choose a custom accent colour"
+msgstr "Choose a custom accent colour"
+
 #: components/auth/src/flows/FlowLogin.tsx
 msgid "Choose a username"
 msgstr "Choose a username"
@@ -1083,6 +1091,10 @@ msgstr "Current Password"
 msgid "Current Session"
 msgstr "Current Session"
 
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
+msgid "Custom accent"
+msgstr "Custom accent"
+
 #: components/app/interface/settings/server/roles/ServerRoleEditor.tsx
 msgid "Custom colour"
 msgstr "Custom colour"
@@ -1100,7 +1112,6 @@ msgid "Customisation"
 msgstr "Customisation"
 
 #: components/app/interface/settings/server/roles/ServerRoleEditor.tsx
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
 msgid "Dark"
 msgstr "Dark"
 
@@ -1543,6 +1554,10 @@ msgstr "For 3 hours"
 msgid "For 8 hours"
 msgstr "For 8 hours"
 
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
+msgid "Frappe"
+msgstr "Frappe"
+
 #: src/interface/Friends.tsx
 #: src/interface/navigation/channels/HomeSidebar.tsx
 msgid "Friends"
@@ -1553,8 +1568,12 @@ msgid "from "
 msgstr "from "
 
 #: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
-msgid "Fruit Salad"
-msgstr "Fruit Salad"
+#~ msgid "Fruit Salad"
+#~ msgstr "Fruit Salad"
+
+#: components/app/interface/settings/UserSettings.tsx
+msgid "Fun Peckers"
+msgstr "Fun Peckers"
 
 #: components/app/interface/settings/user/bots/ViewBot.tsx
 msgid "Generate a new token if it gets lost or compromised"
@@ -1681,8 +1700,8 @@ msgid "Hide Others"
 msgstr "Hide Others"
 
 #: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
-msgid "High Contrast"
-msgstr "High Contrast"
+#~ msgid "High Contrast"
+#~ msgstr "High Contrast"
 
 #: components/app/interface/settings/server/roles/ServerRoleEditor.tsx
 msgid "Hoist Role"
@@ -1858,6 +1877,10 @@ msgstr "Last sync <0/>"
 msgid "Latest"
 msgstr "Latest"
 
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
+msgid "Latte"
+msgstr "Latte"
+
 #: components/app/interface/settings/user/Native.tsx
 msgid "Launch Stoat when you log into your computer."
 msgstr "Launch Stoat when you log into your computer."
@@ -1899,7 +1922,6 @@ msgid "Let us know how we can improve our app by giving us feedback."
 msgstr "Let us know how we can improve our app by giving us feedback."
 
 #: components/app/interface/settings/server/roles/ServerRoleEditor.tsx
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
 msgid "Light"
 msgstr "Light"
 
@@ -1940,6 +1962,10 @@ msgstr "Logs you out of all sessions except this device."
 #: components/app/interface/settings/server/emojis/EmojiList.tsx
 msgid "Lowercase letters, numbers and underscores only."
 msgstr "Lowercase letters, numbers and underscores only."
+
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
+msgid "Macchiato"
+msgstr "Macchiato"
 
 #: components/ui/components/design/LoadingScreen.tsx
 msgid "Major Outage"
@@ -2080,6 +2106,10 @@ msgstr "Message Size"
 msgid "Message was sent on another platform"
 msgstr "Message was sent on another platform"
 
+#: components/app/interface/settings/user/notifications/UserAlerts.tsx
+msgid "messages from these users always play an alarm sound even when the channel is muted or you are viewing it"
+msgstr "messages from these users always play an alarm sound even when the channel is muted or you are viewing it"
+
 #: components/app/interface/settings/channel/permissions/ChannelPermissionsEditor.tsx
 msgid "Messaging"
 msgstr "Messaging"
@@ -2097,16 +2127,20 @@ msgid "Missing permission"
 msgstr "Missing permission"
 
 #: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
-msgid "Monochrome"
-msgstr "Monochrome"
+msgid "Mocha"
+msgstr "Mocha"
+
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
+#~ msgid "Monochrome"
+#~ msgstr "Monochrome"
 
 #: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
 msgid "Monospace Font"
 msgstr "Monospace Font"
 
 #: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
-msgid "More Contrast"
-msgstr "More Contrast"
+#~ msgid "More Contrast"
+#~ msgstr "More Contrast"
 
 #: components/app/interface/settings/channel/permissions/ChannelPermissionsEditor.tsx
 msgid "Move Members"
@@ -2178,8 +2212,8 @@ msgid "Name"
 msgstr "Name"
 
 #: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
-msgid "Neutral"
-msgstr "Neutral"
+#~ msgid "Neutral"
+#~ msgstr "Neutral"
 
 #: components/ui/components/features/messaging/elements/MessageDivider.tsx
 msgid "NEW"
@@ -2233,8 +2267,8 @@ msgid "None"
 msgstr "None"
 
 #: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
-msgid "Normal"
-msgstr "Normal"
+#~ msgid "Normal"
+#~ msgstr "Normal"
 
 #: components/modal/modals/ReportContent.tsx
 msgid "Not of minimum age to use the platform"
@@ -2482,6 +2516,10 @@ msgstr "Pronouns"
 msgid "Provided email or password is wrong."
 msgstr "Provided email or password is wrong."
 
+#: components/app/interface/settings/UserSettings.tsx
+msgid "Puppygirl Alarm"
+msgstr "Puppygirl Alarm"
+
 #: components/modal/modals/ReportContent.tsx
 msgid "Raid or spam attack"
 msgstr "Raid or spam attack"
@@ -2546,8 +2584,8 @@ msgid "Recovery Codes"
 msgstr "Recovery Codes"
 
 #: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
-msgid "Reduced"
-msgstr "Reduced"
+#~ msgid "Reduced"
+#~ msgstr "Reduced"
 
 #: components/auth/src/flows/FlowCreate.tsx
 msgid "Register"
@@ -2573,6 +2611,7 @@ msgstr "Remote Channel"
 msgid "Remote Server"
 msgstr "Remote Server"
 
+#: components/app/interface/settings/user/notifications/UserAlerts.tsx
 #: components/modal/modals/RemoveMember.tsx
 msgid "Remove"
 msgstr "Remove"
@@ -3138,8 +3177,8 @@ msgid "Sync your currently chosen language."
 msgstr "Sync your currently chosen language."
 
 #: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
-msgid "System"
-msgstr "System"
+#~ msgid "System"
+#~ msgstr "System"
 
 #: components/app/interface/settings/server/Overview.tsx
 msgid "System message channels"
@@ -3300,8 +3339,8 @@ msgid "Token copied to clipboard"
 msgstr "Token copied to clipboard"
 
 #: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
-msgid "Tonal Spot"
-msgstr "Tonal Spot"
+#~ msgid "Tonal Spot"
+#~ msgstr "Tonal Spot"
 
 #: components/app/interface/settings/user/Language.tsx
 msgid "Traditional (DD/MM/YYYY)"
@@ -3553,6 +3592,10 @@ msgstr "Volume"
 #: components/app/interface/settings/user/profile/UserProfileEditor.tsx
 msgid "Want to change username?"
 msgstr "Want to change username?"
+
+#: components/app/interface/settings/user/notifications/Sounds.tsx
+msgid "Watched User Message"
+msgstr "Watched User Message"
 
 #: src/AndroidNag.tsx
 msgid "We are working hard on optimising our web app for mobile."
