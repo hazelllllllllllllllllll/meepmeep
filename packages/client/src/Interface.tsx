@@ -39,7 +39,11 @@ const Interface = (props: { children: JSX.Element }) => {
     if (!e.defaultPrevented) {
       if (e.to === "/settings") {
         e.preventDefault();
-        openModal({ type: "settings", config: "user" });
+        openModal({
+          type: "settings",
+          config: "user",
+          context: { page: "account" },
+        });
       } else if (typeof e.to === "string") {
         state.layout.setLastActivePath(e.to);
       }

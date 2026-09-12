@@ -329,7 +329,13 @@ export const ServerList = (props: Props) => {
       <Tooltip placement="right" content="Settings">
         <a
           class={entryContainer()}
-          onClick={() => openModal({ type: "settings", config: "user" })}
+          onClick={() =>
+            openModal({
+              type: "settings",
+              config: "user",
+              context: { page: "account" },
+            })
+          }
         >
           <Avatar size={42} fallback={<MdSettings />} interactive />
         </a>

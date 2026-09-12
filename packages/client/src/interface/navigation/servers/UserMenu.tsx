@@ -122,7 +122,13 @@ export function UserMenu(props: Props) {
           >
             <ContextMenu>
               <ContextMenuItem
-                onClick={() => openModal({ type: "settings", config: "user" })}
+                onClick={() =>
+                  openModal({
+                    type: "settings",
+                    config: "user",
+                    context: { page: "account" },
+                  })
+                }
                 action
               >
                 <Row align>

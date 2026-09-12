@@ -68,7 +68,13 @@ function PWARedirect() {
 function SettingsRedirect() {
   const { openModal } = useModals();
 
-  onMount(() => openModal({ type: "settings", config: "user" }));
+  onMount(() =>
+    openModal({
+      type: "settings",
+      config: "user",
+      context: { page: "account" },
+    }),
+  );
   return <PWARedirect />;
 }
 

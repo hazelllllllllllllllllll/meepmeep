@@ -61,13 +61,11 @@ export default function UserAlerts() {
   return (
     <Column gap="xl">
       <Column>
-        <Text class="title">
-          <Trans>Puppygirl Alarm</Trans>
-        </Text>
         <Text>
           <Trans>
-            Messages from these users always play a priority sound, even when
-            the channel is muted or you are viewing it.
+
+            messages from these users always play an alarm sound even when
+            the channel is muted or you are viewing it
           </Trans>
         </Text>
       </Column>

@@ -219,7 +219,13 @@ export function HomePage() {
               <Trans>Give feedback on Stoat</Trans>
             </CategoryButton>
             <CategoryButton
-              onClick={() => openModal({ type: "settings", config: "user" })}
+              onClick={() =>
+                openModal({
+                  type: "settings",
+                  config: "user",
+                  context: { page: "account" },
+                })
+              }
               description={
                 <Trans>
                   You can also click the gear icon in the bottom left.
