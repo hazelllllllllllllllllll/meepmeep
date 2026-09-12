@@ -187,7 +187,7 @@ const base = cva({
     },
     attention: {
       normal: {
-        "--color": "var(--md-sys-color-outline)",
+        "--color": "var(--md-sys-color-on-surface-variant)",
         background: "transparent",
       },
       muted: {

@@ -158,6 +158,6 @@ const CategoryTitle = styled("span", {
     margin: "0 8px",
     marginInlineEnd: "20px",
 
-    color: "var(--md-sys-color-outline)",
+    color: "var(--md-sys-color-on-surface-variant)",
   },
 });

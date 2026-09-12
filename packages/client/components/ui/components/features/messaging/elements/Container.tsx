@@ -288,7 +288,7 @@ const infoText = cva({
     alignItems: "center",
     gap: "var(--gap-sm)",
 
-    color: "var(--md-sys-color-outline)",
+    color: "var(--md-sys-color-on-surface-variant)",
 
     ...typography.raw({ class: "body", size: "small" }),
   },
