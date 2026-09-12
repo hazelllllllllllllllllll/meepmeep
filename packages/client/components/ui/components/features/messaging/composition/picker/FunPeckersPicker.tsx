@@ -6,7 +6,7 @@ const FUN_PECKERS = [
   "son",
   "w brenna ❤‍🩹",
   "thank you !❤‍🩹",
-  "thank you !❤‍🩹 fun peckers",
+  "thank you !❤‍🩹 Fun Peckers",
   "im crine 😭",
   "son i'm brine :01KQTJ2VY2ED7RDRQB0PQ6Z1YS::01KQTJ2VY2ED7RDRQB0PQ6Z1YS:",
   "w abacus 🧮❤‍🩹",

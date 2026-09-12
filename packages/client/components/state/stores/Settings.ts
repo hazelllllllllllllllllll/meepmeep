@@ -39,6 +39,11 @@ interface SettingsDefinition {
   "notifications:push": NotificationPermissionState;
 
   /**
+   * Users whose messages should always trigger a priority notification
+   */
+  "notifications:watched_users": string[];
+
+  /**
    * Selected unicode emoji
    */
   "appearance:unicode_emoji": UnicodeEmojiPacks;
@@ -61,17 +66,17 @@ interface SettingsDefinition {
   "appearance:show_send_button": boolean;
 
   /**
-   * Show custom fun pecker message buttons
+   * Show custom Fun Pecker message buttons
    */
   "appearance:fun_peckers": boolean;
 
   /**
-   * Show the fun peckers popout button
+   * Show the Fun Peckers popout button
    */
   "appearance:fun_peckers_menu": boolean;
 
   /**
-   * User-added fun pecker messages
+   * User-added Fun Pecker messages
    */
   "appearance:custom_fun_peckers": string[];
 
@@ -118,6 +123,10 @@ type ValueType<T extends keyof SettingsDefinition> =
 const EXPECTED_TYPES: { [K in keyof SettingsDefinition]: ValueType<K> } = {
   "notifications:desktop": "string",
   "notifications:push": "string",
+  "notifications:watched_users": (value) =>
+    Array.isArray(value)
+      ? value.filter((item): item is string => typeof item === "string")
+      : [],
   "appearance:unicode_emoji": "string",
   "appearance:show_send_button": "boolean",
   "appearance:fun_peckers": "boolean",
@@ -167,6 +176,7 @@ export class Settings extends AbstractStore<"settings", TypeSettings> {
     return {
       "notifications:desktop": "default",
       "notifications:push": "default",
+      "notifications:watched_users": [],
       "appearance:unicode_emoji": "twemoji",
       "appearance:show_send_button": true,
       "appearance:fun_peckers": true,

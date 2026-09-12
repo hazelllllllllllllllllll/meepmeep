@@ -36,9 +36,14 @@ export function NotificationsWorker() {
    */
   function onMessage(message: Message) {
     const us = client().user!;
-
-    // Ignore if we are currently looking at the channel
-    if (params().channelId === message.channelId && document.hasFocus()) return;
+    const authorId = message.authorId ?? message.author?.id;
+    const watchedUsers =
+      state.settings.getValue("notifications:watched_users") ?? [];
+    const isWatchedUser = watchedUsers.some(
+      (watchedUser) =>
+        watchedUser === authorId ||
+        watchedUser.toLowerCase() === message.username?.toLowerCase(),
+    );
 
     // Ignore our own messages
     if (message.author?.self) return;
@@ -46,23 +51,34 @@ export function NotificationsWorker() {
     // Ignore blocked users
     if (message.author?.relationship === "Blocked") return;
 
-    // Ignore muted channels
-    if (state.notifications.isMuted(message.channel)) return;
+    if (isWatchedUser) {
+      sound.playSound("priorityMessage");
 
-    // Check channel notification settings
-    switch (state.notifications.computeForChannel(message.channel!)) {
-      case "none":
-        return; // ignore if muted/none
-      case "mention":
-        if (!message.mentioned) return; // ignore if not mentioned
+      // A priority message still plays its sound while the current channel is
+      // focused, but does not need a duplicate desktop notification.
+      if (params().channelId === message.channelId && document.hasFocus()) return;
+    } else {
+      // Ignore if we are currently looking at the channel
+      if (params().channelId === message.channelId && document.hasFocus()) return;
+
+      // Ignore muted channels
+      if (state.notifications.isMuted(message.channel)) return;
+
+      // Check channel notification settings
+      switch (state.notifications.computeForChannel(message.channel!)) {
+        case "none":
+          return; // ignore if muted/none
+        case "mention":
+          if (!message.mentioned) return; // ignore if not mentioned
+      }
+
+      // Ignore if we're busy or focused
+      if (
+        us.status?.presence === "Busy" ||
+        (us.status?.presence === "Focus" && !message.mentioned)
+      )
+        return;
     }
-
-    // Ignore if we're busy or focused
-    if (
-      us.status?.presence === "Busy" ||
-      (us.status?.presence === "Focus" && !message.mentioned)
-    )
-      return;
 
     // Generate the title
     let title;
@@ -199,7 +215,7 @@ export function NotificationsWorker() {
     )
       return;
 
-    sound.playSound("message");
+    if (!isWatchedUser) sound.playSound("message");
 
     const notification = new Notification(title!, {
       icon,

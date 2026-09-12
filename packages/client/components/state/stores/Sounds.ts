@@ -14,6 +14,11 @@ export type TypeSounds = {
   message: boolean;
 
   /**
+   * Play a priority sound for watched users' messages
+   */
+  priorityMessage: boolean;
+
+  /**
    * Play sound on mute
    */
   mute: boolean;
@@ -85,6 +90,7 @@ export class Sounds extends AbstractStore<"sounds", TypeSounds> {
     return {
       deafen: true,
       message: true,
+      priorityMessage: true,
       mute: true,
       ringtoneIncoming: true,
       ringtoneOutgoing: true,
@@ -104,6 +110,10 @@ export class Sounds extends AbstractStore<"sounds", TypeSounds> {
     return {
       deafen: typeof input.deafen === "boolean" ? input.deafen : true,
       message: typeof input.message === "boolean" ? input.message : true,
+      priorityMessage:
+        typeof input.priorityMessage === "boolean"
+          ? input.priorityMessage
+          : true,
       mute: typeof input.mute === "boolean" ? input.mute : true,
       ringtoneIncoming:
         typeof input.ringtoneIncoming === "boolean"

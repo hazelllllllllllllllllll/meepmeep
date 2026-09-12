@@ -30,7 +30,7 @@ export default function FunPeckersSettings() {
     <Column gap="xl">
       <Column>
         <Text class="title" size="small">
-          Fun peckers
+          Fun Peckers
         </Text>
         <Checkbox
           checked={state.settings.getValue("appearance:fun_peckers")}
@@ -52,7 +52,7 @@ export default function FunPeckersSettings() {
             )
           }
         >
-          Show fun peckers popout
+          Show Fun Peckers popout
         </Checkbox>
       </Column>
 

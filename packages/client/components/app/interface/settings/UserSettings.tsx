@@ -40,6 +40,7 @@ import { Feedback } from "./user/Feedback";
 import { LanguageSettings } from "./user/Language";
 import Native from "./user/Native";
 import Notifications from "./user/notifications/Notifications";
+import UserAlerts from "./user/notifications/UserAlerts";
 import { EditProfile } from "./user/profile";
 import { Sessions } from "./user/Sessions";
 import { EditSubscription } from "./user/subscriptions";
@@ -103,6 +104,8 @@ const Config: SettingsConfiguration<{ server: Server }> = {
         return <VoiceSettings />;
       case "notifications":
         return <Notifications isDesktop={!!window.native} />;
+      case "user-alerts":
+        return <UserAlerts />;
       default:
         return null;
     }
@@ -278,7 +281,7 @@ const Config: SettingsConfiguration<{ server: Server }> = {
             {
               id: "fun-peckers",
               icon: <Symbol size={20}>touch_app</Symbol>,
-              title: <Trans>Fun peckers</Trans>,
+              title: <Trans>Fun Peckers</Trans>,
             },
             // {
             //   id: "accessibility",
@@ -295,6 +298,11 @@ const Config: SettingsConfiguration<{ server: Server }> = {
               id: "notifications",
               icon: <MdNotifications {...iconSize(20)} />,
               title: <Trans>Notifications</Trans>,
+            },
+            {
+              id: "user-alerts",
+              icon: <MdNotifications {...iconSize(20)} />,
+              title: <Trans>Puppygirl Alarm</Trans>,
             },
             // {
             //   id: "keybinds",

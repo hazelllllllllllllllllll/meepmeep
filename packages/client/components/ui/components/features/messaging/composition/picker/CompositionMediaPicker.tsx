@@ -182,7 +182,7 @@ function Picker(
             onPress={() => props.setShow("fun_peckers")}
             group="connected-end"
           >
-            Fun peckers
+            Fun Peckers
           </Button>
         </Row>
 

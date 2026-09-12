@@ -40,7 +40,7 @@ export class SoundController {
    * @returns Whether a sound is currently playing
    */
   isPlaying(): boolean {
-    return this.node?.paused ?? false;
+    return this.node ? !this.node.paused : false;
   }
 
   /**
@@ -83,6 +83,10 @@ export class SoundController {
       }
       case "message": {
         this.node = new Audio(messageSound);
+        break;
+      }
+      case "priorityMessage": {
+        this.node = new Audio(ringtoneIncomingSound);
         break;
       }
       case "mute": {

@@ -415,7 +415,7 @@ export function MessageComposition(props: Props) {
                     >
                       <MessageBox.InlineIcon>
                         <IconButton
-                          aria-label="Open fun peckers"
+                          aria-label="Open Fun Peckers"
                           onPress={triggerProps.onClickFunPeckers}
                         >
                           <Symbol>touch_app</Symbol>
