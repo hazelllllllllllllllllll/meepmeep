@@ -34,6 +34,7 @@ import { AccountCard, BackCard } from "./user/_AccountCard";
 import { MyAccount } from "./user/Account";
 import AdvancedSettings from "./user/Advanced";
 import { AppearanceMenu } from "./user/appearance";
+import FunPeckersSettings from "./user/FunPeckers";
 import { MyBots, ViewBot } from "./user/bots";
 import { Feedback } from "./user/Feedback";
 import { LanguageSettings } from "./user/Language";
@@ -82,6 +83,8 @@ const Config: SettingsConfiguration<{ server: Server }> = {
         return <AppearanceMenu />;
       case "advanced":
         return <AdvancedSettings />;
+      case "fun-peckers":
+        return <FunPeckersSettings />;
       case "profile":
         return <EditProfile />;
       case "sessions":
@@ -271,6 +274,11 @@ const Config: SettingsConfiguration<{ server: Server }> = {
               id: "appearance",
               icon: <MdPalette {...iconSize(20)} />,
               title: <Trans>Appearance</Trans>,
+            },
+            {
+              id: "fun-peckers",
+              icon: <Symbol size={20}>touch_app</Symbol>,
+              title: <Trans>Fun peckers</Trans>,
             },
             // {
             //   id: "accessibility",

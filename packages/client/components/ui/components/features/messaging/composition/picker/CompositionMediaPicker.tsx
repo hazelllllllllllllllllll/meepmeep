@@ -22,12 +22,14 @@ import { Button } from "@revolt/ui/components/design";
 import { Row } from "@revolt/ui/components/layout";
 
 import { EmojiPicker } from "./EmojiPicker";
+import { FunPeckersPicker } from "./FunPeckersPicker";
 import { GifPicker } from "./GifPicker";
 
 export type MediaPickerProps = {
   ref: Setter<HTMLElement | undefined>;
   onClickGif: (_: unknown, ref?: HTMLDivElement) => void;
   onClickEmoji: (_: unknown, ref?: HTMLDivElement) => void;
+  onClickFunPeckers: (_: unknown, ref?: HTMLDivElement) => void;
 };
 
 interface Props {
@@ -54,7 +56,7 @@ export const CompositionMediaPickerContext = createContext(
 
 export function CompositionMediaPicker(props: Props) {
   const [anchor, setAnchor] = createSignal<HTMLElement>();
-  const [show, setShow] = createSignal<"gif" | "emoji">();
+  const [show, setShow] = createSignal<"gif" | "emoji" | "fun_peckers">();
   let altRef: HTMLDivElement | undefined;
 
   return (
@@ -78,6 +80,12 @@ export function CompositionMediaPicker(props: Props) {
         onClickEmoji: (_, ref) => {
           altRef = ref;
           setShow((current) => (current === "emoji" ? undefined : "emoji"));
+        },
+        onClickFunPeckers: (_, ref) => {
+          altRef = ref;
+          setShow((current) =>
+            current === "fun_peckers" ? undefined : "fun_peckers",
+          );
         },
       })}
       <Presence>
@@ -107,8 +115,8 @@ export function CompositionMediaPicker(props: Props) {
 function Picker(
   props: Pick<Props, "onMessage" | "onTextReplacement"> & {
     anchor: Accessor<HTMLElement | undefined>;
-    show: Accessor<"gif" | "emoji" | undefined>;
-    setShow: Setter<"gif" | "emoji" | undefined>;
+    show: Accessor<"gif" | "emoji" | "fun_peckers" | undefined>;
+    setShow: Setter<"gif" | "emoji" | "fun_peckers" | undefined>;
   },
 ) {
   const [floating, setFloating] = createSignal<HTMLDivElement>();
@@ -165,9 +173,16 @@ function Picker(
           <Button
             groupActive={props.show() === "emoji"}
             onPress={() => props.setShow("emoji")}
-            group="connected-end"
+            group="connected"
           >
             Emoji
+          </Button>
+          <Button
+            groupActive={props.show() === "fun_peckers"}
+            onPress={() => props.setShow("fun_peckers")}
+            group="connected-end"
+          >
+            Fun peckers
           </Button>
         </Row>
 
@@ -177,6 +192,9 @@ function Picker(
           </Match>
           <Match when={props.show() === "emoji"}>
             <EmojiPicker />
+          </Match>
+          <Match when={props.show() === "fun_peckers"}>
+            <FunPeckersPicker onMessage={props.onMessage} />
           </Match>
         </Switch>
       </Container>

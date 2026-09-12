@@ -61,6 +61,21 @@ interface SettingsDefinition {
   "appearance:show_send_button": boolean;
 
   /**
+   * Show custom fun pecker message buttons
+   */
+  "appearance:fun_peckers": boolean;
+
+  /**
+   * Show the fun peckers popout button
+   */
+  "appearance:fun_peckers_menu": boolean;
+
+  /**
+   * User-added fun pecker messages
+   */
+  "appearance:custom_fun_peckers": string[];
+
+  /**
    * Whether to render messages in compact mode
    */
   "appearance:compact_mode": boolean;
@@ -105,6 +120,12 @@ const EXPECTED_TYPES: { [K in keyof SettingsDefinition]: ValueType<K> } = {
   "notifications:push": "string",
   "appearance:unicode_emoji": "string",
   "appearance:show_send_button": "boolean",
+  "appearance:fun_peckers": "boolean",
+  "appearance:fun_peckers_menu": "boolean",
+  "appearance:custom_fun_peckers": (value) =>
+    Array.isArray(value)
+      ? value.filter((item): item is string => typeof item === "string")
+      : [],
   "appearance:compact_mode": "boolean",
   "advanced:copy_id": "boolean",
   "advanced:admin_panel": "boolean",
@@ -148,6 +169,9 @@ export class Settings extends AbstractStore<"settings", TypeSettings> {
       "notifications:push": "default",
       "appearance:unicode_emoji": "twemoji",
       "appearance:show_send_button": true,
+      "appearance:fun_peckers": true,
+      "appearance:fun_peckers_menu": true,
+      "appearance:custom_fun_peckers": [],
       "appearance:compact_mode": false,
       "advanced:copy_id": false,
       "advanced:admin_panel": false,

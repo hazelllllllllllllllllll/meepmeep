@@ -396,14 +396,32 @@ export function MessageComposition(props: Props) {
                         </IconButton>
                       </MessageBox.InlineIcon>
                     </Show>
-                    <MessageBox.InlineIcon>
-                      <IconButton
-                        aria-label="Send son"
-                        onPress={() => sendMessage("son")}
-                      >
-                        <span>son</span>
-                      </IconButton>
-                    </MessageBox.InlineIcon>
+                    <Show
+                      when={state.settings.getValue("appearance:fun_peckers")}
+                    >
+                      <MessageBox.InlineIcon>
+                        <IconButton
+                          aria-label="Send son"
+                          onPress={() => sendMessage("son")}
+                        >
+                          <span>son</span>
+                        </IconButton>
+                      </MessageBox.InlineIcon>
+                    </Show>
+                    <Show
+                      when={state.settings.getValue(
+                        "appearance:fun_peckers_menu",
+                      )}
+                    >
+                      <MessageBox.InlineIcon>
+                        <IconButton
+                          aria-label="Open fun peckers"
+                          onPress={triggerProps.onClickFunPeckers}
+                        >
+                          <Symbol>touch_app</Symbol>
+                        </IconButton>
+                      </MessageBox.InlineIcon>
+                    </Show>
                     <MessageBox.InlineIcon>
                       <IconButton onPress={triggerProps.onClickEmoji}>
                         <Symbol>mood</Symbol>
