@@ -174,7 +174,7 @@ const base = cva({
   variants: {
     size: {
       normal: {
-        height: "42px",
+        height: "35px",
         gap: "var(--gap-md)",
       },
       thin: {
