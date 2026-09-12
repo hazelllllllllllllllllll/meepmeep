@@ -17,7 +17,7 @@ import { cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { decodeTime } from "ulid";
 
-import { useClient } from "@revolt/client";
+import { useClient, useUser } from "@revolt/client";
 import { isGif } from "@revolt/common/lib/gifs";
 import { useTime } from "@revolt/i18n";
 import { Markdown } from "@revolt/markdown";
@@ -113,6 +113,7 @@ export function Message(props: Props) {
   const state = useState();
   const { t } = useLingui();
   const client = useClient();
+  const user = useUser();
 
   const [isHovering, setIsHovering] = createSignal(false);
   const [reactPicker, setReactPicker] = createSignal<MediaPickerProps>();
@@ -143,6 +144,11 @@ export function Message(props: Props) {
   // Derive pronouns member takes precedence over author
   const pronouns = () =>
     props.message.member?.pronouns ?? props.message.author?.pronouns;
+  const hasReplies = () =>
+    props.message.authorId !== user()?.id &&
+    (props.message.replyIds ?? []).some(
+      (replyId) => client().messages.get(replyId)?.authorId === user()?.id,
+    );
 
   return (
     <MessageContext message={props.message} reactPicker={reactPicker}>
@@ -191,7 +197,8 @@ export function Message(props: Props) {
         }
         timestamp={props.message.createdAt}
         edited={props.message.editedAt}
-        mentioned={props.message.mentioned}
+        mentioned={props.message.mentioned && !hasReplies()}
+        hasReplies={hasReplies()}
         highlight={props.highlight}
         editing={props.editing}
         isLink={props.isLink}

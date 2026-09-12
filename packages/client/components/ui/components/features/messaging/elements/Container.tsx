@@ -83,6 +83,11 @@ type Props = CommonProps & {
   mentioned?: boolean;
 
   /**
+   * Whether this message has received replies
+   */
+  hasReplies?: boolean;
+
+  /**
    * Whether this message should be highlighted
    */
   highlight?: boolean;
@@ -154,6 +159,13 @@ const base = cva({
     mentioned: {
       true: {
         background: "var(--md-sys-color-primary-container)",
+      },
+    },
+    hasReplies: {
+      true: {
+        background: "var(--md-sys-color-surface-container-lowest)",
+        borderInlineStart: "3px solid var(--md-sys-color-primary)",
+        boxShadow: "inset 12px 0 24px -18px var(--md-sys-color-primary)",
       },
     },
     highlight: {
@@ -342,6 +354,7 @@ export function MessageContainer(props: Props) {
         base({
           tail: props.tail,
           mentioned: props.mentioned,
+          hasReplies: props.hasReplies,
           highlight: props.highlight,
           sendStatus: props.sendStatus,
           isLink: props.isLink,

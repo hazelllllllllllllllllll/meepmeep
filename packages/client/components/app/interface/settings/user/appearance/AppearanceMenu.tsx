@@ -285,7 +285,7 @@ export function AppearanceMenu() {
               isLink="hide"
             >
               <code class={css({ fontFamily: `var(--fonts-monospace)` })}>
-                honda is the best
+                bregna is the best
               </code>
             </MessageContainer>
           </MessagePreview>

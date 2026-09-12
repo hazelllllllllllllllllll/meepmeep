@@ -83,6 +83,8 @@ const Dismiss = styled("a", {
  */
 const Base = styled(Row, {
   base: {
+    width: "100%",
+    boxSizing: "border-box",
     fontSize: "0.8em",
     userSelect: "none",
 
@@ -90,8 +92,10 @@ const Base = styled(Row, {
     padding: "var(--gap-md) var(--gap-lg)",
     borderRadius: "var(--borderRadius-lg)",
 
-    background: "var(--md-sys-color-primary-container)",
-    color: "var(--md-sys-color-on-primary-container)",
+    background: "var(--md-sys-color-surface-container-lowest)",
+    color: "var(--md-sys-color-on-surface)",
+    borderInlineStart: "3px solid var(--md-sys-color-primary)",
+    boxShadow: "inset 8px 0 18px -14px var(--md-sys-color-primary)",
 
     "& a:hover": {
       filter: "brightness(1.2)",
